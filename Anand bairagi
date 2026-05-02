@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>राम भजन lyrics | Krishna Bhajan | Bhajan Diary</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="यहाँ पढ़ें सुंदर राम भजन, कृष्ण भजन, शिव भजन lyrics हिंदी में। Bhajan Diary पर नए भजन रोज अपडेट होते हैं।">
+  <meta name="keywords" content="राम भजन lyrics, कृष्ण भजन, शिव भजन, हिंदी भजन, bhajan diary">
+  <meta name="author" content="Bhajan Diary">
+
+  <!-- Mobile Friendly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: orange;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      padding: 15px;
+    }
+    .bhajan {
+      background: white;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #ff6600;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>📖 Bhajan Diary</h1>
+  <p>राम भजन | कृष्ण भजन | शिव भजन lyrics</p>
+</header>
+
+<div class="container">
+
+<input type="text" id="search" placeholder="भजन खोजें..." onkeyup="searchBhajan()">
+
+<div id="list"></div>
+
+</div>
+
+<script>
+let bhajans = [
+  {
+    title: "राम भजन - श्री रामचंद्र कृपालु भज मन",
+    content: "श्री रामचंद्र कृपालु भज मन हरण भव भय दारुणम्..."
+  },
+  {
+    title: "कृष्ण भजन - अच्युतम केशवम",
+    content: "अच्युतम केशवम कृष्ण दामोदरम..."
+  },
+  {
+    title: "शिव भजन - ओम नमः शिवाय",
+    content: "ॐ नमः शिवाय, ॐ नमः शिवाय..."
+  }
+];
+
+function displayBhajans(data) {
+  let list = document.getElementById("list");
+  list.innerHTML = "";
+
+  data.forEach(b => {
+    let div = document.createElement("div");
+    div.className = "bhajan";
+    div.innerHTML = `<h2>${b.title}</h2><p>${b.content}</p>`;
+    list.appendChild(div);
+  });
+}
+
+function searchBhajan() {
+  let keyword = document.getElementById("search").value.toLowerCase();
+  let filtered = bhajans.filter(b => 
+    b.title.toLowerCase().includes(keyword) || 
+    b.content.toLowerCase().includes(keyword)
+  );
+  displayBhajans(filtered);
+}
+
+displayBhajans(bhajans);
+</script>
+
+</body>
+</html>
